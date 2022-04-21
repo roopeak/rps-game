@@ -51,7 +51,7 @@ function playRound(playerSelection, computerSelection) {
         else {
             computerScore++;
             return ("You lost! Computer chose rock. Points: Computer " + computerScore + " You " + playerScore);
-        }
+        }  
 }
 
 
@@ -68,6 +68,6 @@ for (let i = 1; i <= 5; i++){
     game();
     if (i == 5)
         if (playerScore > computerScore) console.log("You won the game!")
-        else console.log("You were destroyed by AI!")
-
+        else if (playerScore < computerScore) console.log("You were destroyed by AI!")
+        else console.log("It's a draw!")
 }
