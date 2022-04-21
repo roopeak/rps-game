@@ -13,24 +13,46 @@ function playRound(playerSelection, computerSelection) {
     
     // Player selects rock
     if (playerSelection == "rock")
-        if (computerSelection == "scissors") return ("You won! Computer chose scissors.");
-        else if (computerSelection == playerSelection) return ("It's a tie! Computer also chose rock.");
-        else return ("You lost! Computer chose paper.");
+        if (computerSelection == "scissors"){
+            playerScore++;
+            return ("You won! Computer chose scissors. Points: Computer " + computerScore + " You " + playerScore);
+        }
+        else if (computerSelection == playerSelection){
+            return ("It's a tie! Computer also chose rock.");
+        }
+        else{
+            computerScore++;
+            return ("You lost! Computer chose paper. Points: Computer " + computerScore + " You " + playerScore);
+        }
 
     // Player selects paper
     if (playerSelection == "paper")
-        if (computerSelection === "rock") return ("You won! Computer chose rock.");
-        else if (computerSelection == playerSelection) return ("It's a tie! Computer also chose paper.");
-        else return ("You lost! Computer chose scissors.");
+        if (computerSelection === "rock"){
+            playerScore++;
+            return ("You won! Computer chose rock. Points: Computer " + computerScore + " You " + playerScore);
+        }
+        else if (computerSelection == playerSelection){ 
+            return ("It's a tie! Computer also chose paper.");
+        }
+        else{ 
+            computerScore++;
+            return ("You lost! Computer chose scissors. Points: Computer " + computerScore + " You " + playerScore);
+        }
 
     // Player selects scissors
     if (playerSelection == "scissors")
-        if (computerSelection === "paper") return ("You won! Computer chose rock.");
-        else if (computerSelection == playerSelection) return ("It's a tie! Computer also chose scissors.");
-        else return ("You lost! Computer chose rock.");
+        if (computerSelection === "paper"){
+            playerScore++;
+            return ("You won! Computer chose rock. Points: Computer " + computerScore + " You " + playerScore);
+        }
+        else if (computerSelection == playerSelection){ 
+            return ("It's a tie! Computer also chose scissors.");
+        }
+        else {
+            computerScore++;
+            return ("You lost! Computer chose rock. Points: Computer " + computerScore + " You " + playerScore);
+        }
 }
-
-
 
 
 function game(){
@@ -42,7 +64,10 @@ function game(){
 }
 
 
-for (let i = 0; i < 5; i++){
-    
+for (let i = 1; i <= 5; i++){
     game();
+    if (i == 5)
+        if (playerScore > computerScore) console.log("You won the game!")
+        else console.log("You were destroyed by AI!")
+
 }
