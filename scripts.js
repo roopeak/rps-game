@@ -33,7 +33,7 @@ const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));s
 
 function game(){
-    for (let i = 0; i < 5; i++)
+    for (let i = 0; i <= 5; i++)
         playRound();
 
 }
