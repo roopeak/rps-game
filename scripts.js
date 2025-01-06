@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
 	let randomNumber = Math.floor(Math.random() * 3);
 
@@ -21,7 +24,7 @@ function getHumanChoice() {
 	}
 }
 
-function playRound(humanScore, computerScore) {
+function playRound() {
 	const humanChoice = getHumanChoice();
 	const computerChoice = getComputerChoice();
 
@@ -60,12 +63,10 @@ function playRound(humanScore, computerScore) {
 }
 
 function playGame() {
-	let humanScore = 0;
-	let computerScore = 0;
-
+	// Play five rounds
 	let rounds = 0;
 	while (rounds < 5) {
-		playRound(humanScore, computerScore);
+		playRound();
 		rounds++;
 	}
 
