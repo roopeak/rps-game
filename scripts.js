@@ -6,6 +6,7 @@ const computerScoreResult = document.querySelector('.computer-score');
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
+const resetBtn = document.querySelector('.reset-game');
 
 rockBtn.addEventListener("click", () => {
 	playRound('rock');
@@ -17,6 +18,11 @@ paperBtn.addEventListener("click", () => {
 
 scissorsBtn.addEventListener("click", () => {
 	playRound('scissors');
+})
+
+resetBtn.addEventListener("click", () => {
+	disableAndEnableButtons('false');
+	resetGame();
 })
 
 let humanScore = 0;
@@ -97,4 +103,13 @@ function disableAndEnableButtons(booleanValue) {
 		paperBtn.disabled = false;
 		scissorsBtn.disabled = false;
 	}
+}
+
+function resetGame() {
+	humanScore = 0;
+	computerScore = 0;
+	humanScoreResult.textContent = 0;
+	computerScoreResult.textContent = 0;
+	roundResult.textContent = '';
+	gameResult.textContent = ''
 }
