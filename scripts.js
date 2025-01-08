@@ -65,10 +65,10 @@ function playRound() {
 function playGame() {
 	// Play five rounds
 	let rounds = 0;
-	while (rounds < 5) {
-		playRound();
-		rounds++;
-	}
+	// while (rounds < 5) {
+	// 	playRound();
+	// 	rounds++;
+	// }
 
 	if (humanScore > computerScore) {
 		console.log('You won the game!');
