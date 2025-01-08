@@ -1,17 +1,21 @@
+const roundResult = document.querySelector('.round-result');
+const humanScoreResult = document.querySelector('.human-score');
+const computerScoreResult = document.querySelector('.computer-score');
+
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
 
 rockBtn.addEventListener("click", () => {
-	console.log('rock');
+	playRound('rock');
 })
 
 paperBtn.addEventListener("click", () => {
-	console.log('paper');
+	playRound('paper');
 })
 
 scissorsBtn.addEventListener("click", () => {
-	console.log('scissors');
+	playRound('scissors');
 })
 
 let humanScore = 0;
@@ -30,52 +34,48 @@ function getComputerChoice() {
 	}
 }
 
-function getHumanChoice() {
-	let input = prompt('Choose your weapon! Rock, paper or scissors?').toLowerCase();
-
-	if (input === 'rock' || input === 'paper' || input === 'scissors') {
-		return input;
-	} else {
-		getHumanChoice();
-	}
-}
-
-function playRound() {
-	const humanChoice = getHumanChoice();
+function playRound(humanChoice) {
 	const computerChoice = getComputerChoice();
+
+	roundResult.textContent = '';
+	humanScoreResult.textContent = '';
+	computerScoreResult.textContent = '';
 
 	// Player chooses rock
 	if (humanChoice === 'rock' && computerChoice === 'scissors') {
-		console.log('You won!');
+		roundResult.textContent += 'You won!';
 		humanScore += 1;
 	} else if (humanChoice === 'rock' && computerChoice === 'paper') {
-		console.log('You lost!');
+		roundResult.textContent += 'You lost!';
 		computerScore += 1;
 	} else if (humanChoice === 'rock' && computerChoice === 'rock') {
-		console.log("It's a tie!");
+		roundResult.textContent += "It's a tie!";
 	}
 
 	// Player chooses paper
 	if (humanChoice === 'paper' && computerChoice === 'rock') {
-		console.log('You won!');
+		roundResult.textContent += 'You won!';
 		humanScore += 1;
 	} else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-		console.log('You lost!');
+		roundResult.textContent += "You lost!";
 		computerScore += 1;
 	} else if (humanChoice === 'paper' && computerChoice === 'paper') {
-		console.log("It's a tie!");
+		roundResult.textContent += "It's a tie!";
 	}
 
 	// Player chooses scissors
 	if (humanChoice === 'scissors' && computerChoice === 'paper') {
-		console.log('You won!');
+		roundResult.textContent += 'You won!';
 		humanScore += 1;
 	} else if (humanChoice === 'scissors' && computerChoice === 'rock') {
-		console.log('You lost!');
+		roundResult.textContent += "You lost!";
 		computerScore += 1;
 	} else if (humanChoice === 'scissors' && computerChoice === 'scissors') {
-		console.log("It's a tie!");
+		roundResult.textContent += "It's a tie!";
 	}
+
+	humanScoreResult.textContent += humanScore;
+	computerScoreResult.textContent += computerScore;
 }
 
 function playGame() {
