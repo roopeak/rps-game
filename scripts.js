@@ -1,4 +1,5 @@
 const roundResult = document.querySelector('.round-result');
+const gameResult = document.querySelector('.game-result');
 const humanScoreResult = document.querySelector('.human-score');
 const computerScoreResult = document.querySelector('.computer-score');
 
@@ -76,28 +77,24 @@ function playRound(humanChoice) {
 
 	humanScoreResult.textContent += humanScore;
 	computerScoreResult.textContent += computerScore;
-}
 
-function playGame() {
-	// Play five rounds
-	let rounds = 0;
-	// while (rounds < 5) {
-	// 	playRound();
-	// 	rounds++;
-	// }
-
-
-
-	if (humanScore > computerScore) {
-		console.log('You won the game!');
-	} else if (computerScore > humanScore) {
-		console.log("Computer won the game!");
-	} else if (humanScore === computerScore) {
-		console.log("Game is a tie!");
+	if (humanScore === 5) {
+		gameResult.textContent += 'You won the game!';
+		disableAndEnableButtons('true');
+	} else if (computerScore === 5) {
+		gameResult.textContent += 'Computer won the game!';
+		disableAndEnableButtons('true');
 	}
 }
 
-
-
-
-playGame();
+function disableAndEnableButtons(booleanValue) {
+	if (booleanValue === 'true') {
+		rockBtn.disabled = true;
+		paperBtn.disabled = true;
+		scissorsBtn.disabled = true;
+	} else if (booleanValue === 'false') {
+		rockBtn.disabled = false;
+		paperBtn.disabled = false;
+		scissorsBtn.disabled = false;
+	}
+}
