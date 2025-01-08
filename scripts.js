@@ -1,3 +1,19 @@
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorsBtn = document.querySelector('.scissors');
+
+rockBtn.addEventListener("click", () => {
+	console.log('rock');
+})
+
+paperBtn.addEventListener("click", () => {
+	console.log('paper');
+})
+
+scissorsBtn.addEventListener("click", () => {
+	console.log('scissors');
+})
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -70,6 +86,8 @@ function playGame() {
 	// 	rounds++;
 	// }
 
+
+
 	if (humanScore > computerScore) {
 		console.log('You won the game!');
 	} else if (computerScore > humanScore) {
@@ -78,5 +96,8 @@ function playGame() {
 		console.log("Game is a tie!");
 	}
 }
+
+
+
 
 playGame();
